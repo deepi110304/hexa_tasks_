@@ -1,0 +1,35 @@
+CREATE database shop_db;
+USE shop_db;
+CREATE TABLE products (
+    Product_ID INT PRIMARY KEY,
+    Product_Name VARCHAR(50),
+    Category VARCHAR(50),
+    Price DECIMAL(10, 2),
+    Stock_Quantity INT
+);
+INSERT INTO products VALUES
+(1, 'Laptop', 'Electronics', 55000.00, 15),
+(2, 'Running Shoes', 'Footwear', 3500.00, 25),
+(3, 'Coffee Maker', 'Appliances', 4500.00, 8),
+(4, 'Desk Chair', 'Furniture', 7000.00, 12),
+(5, 'Smart Watch', 'Electronics', 12000.00, 0), 
+(6, 'Backpack', 'Accessories', 1800.00, 5); 
+SELECT * FROM products;
+SELECT Product_Name, Price FROM products;
+INSERT INTO products VALUES
+(7, 'Wireless Mouse', 'Electronics', 1200.00, 50);
+UPDATE products  SET Price = 3800.00 WHERE Product_ID = 2;
+UPDATE products SET Price = Price * 1.10 WHERE Category = 'Electronics';
+SET SQL_SAFE_UPDATES = 0;
+UPDATE products SET Price = Price * 1.10 WHERE Category = 'Electronics';
+SET SQL_SAFE_UPDATES = 1;
+UPDATE products SET Stock_Quantity = Stock_Quantity - 1 WHERE Product_ID = 1;
+UPDATE products SET Category = 'Office Furniture' WHERE Product_ID = 4;
+SELECT * FROM products WHERE Price > 1000;
+SELECT * FROM products WHERE Stock_Quantity < 10;
+SELECT * FROM products WHERE Category = 'Electronics';
+SELECT * FROM products ORDER BY Price DESC;
+DELETE FROM products WHERE Product_ID = 3;
+DELETE FROM products WHERE Stock_Quantity = 0;
+SET SQL_SAFE_UPDATES = 1;
+SELECT * FROM products;
