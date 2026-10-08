@@ -1,0 +1,810 @@
+db.datatype_practice.insertMany([
+{
+product_id: 501,
+product_name: "Laptop",
+price: 65000,
+stock: 10,
+available: true,
+launch_date: ISODate("2026-01-10"),
+colors: ["Black", "Silver"],
+details: {
+brand: "Dell",
+warranty_years: 2
+}
+},
+{
+product_id: 502,
+product_name: "Headphones",
+price: 4500,
+stock: 25,
+available: true,
+launch_date: ISODate("2026-03-15"),
+colors: ["Black", "Blue"],
+details: {
+brand: "Sony",
+warranty_years: 1
+}
+},
+{
+product_id: 503,
+product_name: "Office Chair",
+price: 9000,
+stock: 0,
+available: false,
+launch_date: ISODate("2025-12-20"),
+
+colors: ["Black", "Grey"],
+details: {
+brand: "GreenSoul",
+warranty_years: 3
+}
+},
+{
+product_id: 504,
+product_name: "Smart Watch",
+price: 18000,
+stock: 8,
+available: true,
+launch_date: ISODate("2026-06-01"),
+colors: ["Black", "Red"],
+details: {
+brand: "Samsung",
+warranty_years: 1
+}
+}
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6ac71c900f26896abb114fa9'),
+    '1': ObjectId('6ac71c900f26896abb114faa'),
+    '2': ObjectId('6ac71c900f26896abb114fab'),
+    '3': ObjectId('6ac71c900f26896abb114fac')
+  }
+}
+1.db.datatype_practice.find()
+{
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 25,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: false,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 1
+  }
+}
+2.db.datatype_practice.find({product_name: "Laptop"})
+{
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+3.db.datatype_practice.find({price : {$gt: 10000 } })
+{
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 1
+  }
+}
+4.db.datatype_practice.find({stock : {$lt: 10} } )
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: false,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 1
+  }
+}
+5.db.datatype_practice.find({available : true})
+{
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 25,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 1
+  }
+}
+6.db.datatype_practice.find({available : false})
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: false,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+7.db.datatype_practice.find({launch_date : {$gt: ISODate("2026-01-01")} })
+{
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 25,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 1
+  }
+}
+8.db.datatype_practice.find({colors: "Black"})
+{
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 25,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: false,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 1
+  }
+}
+9.db.datatype_practice.find({ colors: { $all: ["Black", "Blue"] } })
+{
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 25,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+10.db.datatype_practice.find({"details.brand": "Samsung"})
+{
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 1
+  }
+}
+11.db.datatype_practice.find({ "details.warranty_years": { $gt : 1}})
+{
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: false,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+12.db.datatype_practice.updateOne({ product_id: 502 }, { $inc: { stock: 5 } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+13.db.datatype_practice.updateOne({ product_id: 503 }, { $set: { available: true } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+14.db.datatype_practice.updateOne({ product_id: 501 }, { $push: { colors: "White" } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+15.db.datatype_practice.updateOne({ product_id: 504 }, { $set: { "details.warranty_years": 2 } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+16.db.datatype_practice.find({}, { product_name: 1, price: 1, _id: 0 })
+
+  product_name: 'Laptop',
+  price: 65000
+}
+{
+  product_name: 'Headphones',
+  price: 4500
+}
+{
+  product_name: 'Office Chair',
+  price: 9000
+}
+{
+  product_name: 'Smart Watch',
+  price: 18000
+}
+17.db.datatype_practice.find({ price: { $type: "number" } }) 
+{
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver',
+    'White'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 30,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: true,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 2
+  }
+}
+18.db.datatype_practice.find({ available: { $type: "bool" } })
+
+  _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver',
+    'White'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 30,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: true,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 2
+  }
+}
+19.db.datatype_practice.find({ launch_date: { $type: "date" } })
+ _id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver',
+    'White'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 30,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: true,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 2
+  }
+}
+20.db.datatype_practice.find({ colors: { $type: "array" } })
+_id: ObjectId('6ac71c900f26896abb114fa9'),
+  product_id: 501,
+  product_name: 'Laptop',
+  price: 65000,
+  stock: 10,
+  available: true,
+  launch_date: ISODate('2026-01-10T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Silver',
+    'White'
+  ],
+  details: {
+    brand: 'Dell',
+    warranty_years: 2
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114faa'),
+  product_id: 502,
+  product_name: 'Headphones',
+  price: 4500,
+  stock: 30,
+  available: true,
+  launch_date: ISODate('2026-03-15T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Blue'
+  ],
+  details: {
+    brand: 'Sony',
+    warranty_years: 1
+  }
+}
+{
+  _id: ObjectId('6ac71c900f26896abb114fab'),
+  product_id: 503,
+  product_name: 'Office Chair',
+  price: 9000,
+  stock: 0,
+  available: true,
+  launch_date: ISODate('2025-12-20T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Grey'
+  ],
+  details: {
+    brand: 'GreenSoul',
+    warranty_years: 3
+  }
+}
+
+  _id: ObjectId('6ac71c900f26896abb114fac'),
+  product_id: 504,
+  product_name: 'Smart Watch',
+  price: 18000,
+  stock: 8,
+  available: true,
+  launch_date: ISODate('2026-06-01T00:00:00.000Z'),
+  colors: [
+    'Black',
+    'Red'
+  ],
+  details: {
+    brand: 'Samsung',
+    warranty_years: 2
+  }
+}

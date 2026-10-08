@@ -1,0 +1,395 @@
+use("retail_db")
+
+db.products.insertOne({
+  product_id: 101,
+  product_name: "Wireless Mouse",
+  category: "Electronics",
+  brand: "Logitech",
+  price: 1500,
+  stock: 25,
+  available: true
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6ac5cd0de7f1285ff95ca0f2')
+}
+db.products.insertMany([
+    {
+        product_id: 102,
+        product_name: "Mechanical Keyboard",
+        category: "Electronics",
+        brand: "Keychron",
+        price: 4500,
+        stock: 15,
+        available: true
+    },
+    {
+        product_id: 103,
+        product_name: "Office Chair",
+        category: "Furniture",
+        brand: "GreenSoul",
+        price: 8500,	
+        stock: 8,
+        available: true
+    },
+    {
+        product_id: 104,
+        product_name: "Laptop Stand",
+        category: "Accessories",
+        brand: "Portronics",
+        price: 1800,
+        stock: 20,
+        available: true
+    },
+    {
+        product_id: 105,
+        product_name: "27 Inch Monitor",
+        category: "Electronics",
+        brand: "Samsung",
+        price: 18000,
+        stock: 10,
+        available: true
+    },
+    {
+        product_id: 106,
+        product_name: "Study Table",
+        category: "Furniture",
+        brand: "UrbanWood",
+        price: 12000,
+        stock: 5,
+        available: false    }
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6ac5ce6ee7f1285ff95ca0f3'),
+    '1': ObjectId('6ac5ce6ee7f1285ff95ca0f4'),
+    '2': ObjectId('6ac5ce6ee7f1285ff95ca0f5'),
+    '3': ObjectId('6ac5ce6ee7f1285ff95ca0f6'),
+    '4': ObjectId('6ac5ce6ee7f1285ff95ca0f7')
+  }
+}
+db.products.find()
+{
+  _id: ObjectId('6ac5ccd6e7f1285ff95ca0f1'),
+  product_id: 101
+}
+{
+  _id: ObjectId('6ac5cd0de7f1285ff95ca0f2'),
+  product_id: 101,
+  product_name: 'Wireless Mouse',
+  category: 'Electronics',
+  brand: 'Logitech',
+  price: 1500,
+  stock: 25,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f3'),
+  product_id: 102,
+  product_name: 'Mechanical Keyboard',
+  category: 'Electronics',
+  brand: 'Keychron',
+  price: 4500,
+  stock: 15,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f4'),
+  product_id: 103,
+  product_name: 'Office Chair',
+  category: 'Furniture',
+  brand: 'GreenSoul',
+  price: 8500,
+  stock: 8,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f5'),
+  product_id: 104,
+  product_name: 'Laptop Stand',
+  category: 'Accessories',
+  brand: 'Portronics',
+  price: 1800,
+  stock: 20,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f6'),
+  product_id: 105,
+  product_name: '27 Inch Monitor',
+  category: 'Electronics',
+  brand: 'Samsung',
+  price: 18000,
+  stock: 10,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f7'),
+  product_id: 106,
+  product_name: 'Study Table',
+  category: 'Furniture',
+  brand: 'UrbanWood',
+  price: 12000,
+  stock: 5,
+  available: false
+}
+db.products.find({
+  category: "Electronics"
+})
+{
+  _id: ObjectId('6ac5cd0de7f1285ff95ca0f2'),
+  product_id: 101,
+  product_name: 'Wireless Mouse',
+  category: 'Electronics',
+  brand: 'Logitech',
+  price: 1500,
+  stock: 25,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f3'),
+  product_id: 102,
+  product_name: 'Mechanical Keyboard',
+  category: 'Electronics',
+  brand: 'Keychron',
+  price: 4500,
+  stock: 15,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f6'),
+  product_id: 105,
+  product_name: '27 Inch Monitor',
+  category: 'Electronics',
+  brand: 'Samsung',
+  price: 18000,
+  stock: 10,
+  available: true
+}
+db.products.find({
+    price: {
+        $gt: 5000
+    }
+})
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f4'),
+  product_id: 103,
+  product_name: 'Office Chair',
+  category: 'Furniture',
+  brand: 'GreenSoul',
+  price: 8500,
+  stock: 8,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f6'),
+  product_id: 105,
+  product_name: '27 Inch Monitor',
+  category: 'Electronics',
+  brand: 'Samsung',
+  price: 18000,
+  stock: 10,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f7'),
+  product_id: 106,
+  product_name: 'Study Table',
+  category: 'Furniture',
+  brand: 'UrbanWood',
+  price: 12000,
+  stock: 5,
+  available: false
+}
+db.products.find({
+    category: "Electronics",
+    price: {
+        $gt: 2000
+    }
+})
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f3'),
+  product_id: 102,
+  product_name: 'Mechanical Keyboard',
+  category: 'Electronics',
+  brand: 'Keychron',
+  price: 4500,
+  stock: 15,
+  available: true
+}
+{
+  _id: ObjectId('6ac5ce6ee7f1285ff95ca0f6'),
+  product_id: 105,
+  product_name: '27 Inch Monitor',
+  category: 'Electronics',
+  brand: 'Samsung',
+  price: 18000,
+  stock: 10,
+  available: true
+}
+db.products.find(
+    {},
+    {
+        product_name: 1,
+        price: 1,
+        _id: 0
+    }
+)
+{}
+{
+  product_name: 'Wireless Mouse',
+  price: 1500
+}
+{
+  product_name: 'Mechanical Keyboard',
+  price: 4500
+}
+{
+  product_name: 'Office Chair',
+  price: 8500
+}
+{
+  product_name: 'Laptop Stand',
+  price: 1800
+}
+{
+  product_name: '27 Inch Monitor',
+  price: 18000
+}
+{
+  product_name: 'Study Table',
+  price: 12000
+}
+ db.products.updateOne(
+      {
+         product_id: 101
+      },
+      {
+         $set: {
+             price: 1700
+         }
+      }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.products.updateOne(
+    {
+       product_id: 106
+    },
+    {
+       $set: {
+           price: 11000,
+           stock: 12,
+           available: true
+        }
+     }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.products.updateOne(
+     {
+         product_id: 102
+     },
+     {
+        $inc: {
+           stocl: 5
+        }
+     }
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.products.updateMany(
+    {
+        category: "Electronics"
+    },
+    {
+       $mul: {
+          price: 1.10
+       }
+     }
+) 
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+db.products.deleteOne({
+       product_id: 104
+  })
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.createCollection("products_schema_demo")
+{ ok: 1 }
+db.products_schema_demo.insertMany([
+    {
+        product_id: 101,
+        product_name: "Laptop",
+        category: "Electronics",
+        price: 65000,
+        stock: 10
+    },
+    {
+        product_id: 102,
+        name: "Wireless Mouse",
+        category: "Electronics",
+        price: "1500",
+        stock: 25
+    },
+    {
+        product_id: 103,
+        product_name: "Office Chair",
+        category: "Furniture",
+        price: 8500,
+        quantity: 12
+    },
+    {
+        product_id: 104,
+        product_name: "Keyboard",
+        category: 100,
+        price: 2500,
+        stock: "20"
+    }
+])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6ac712e50f26896abb114fa0'),
+    '1': ObjectId('6ac712e50f26896abb114fa1'),
+    '2': ObjectId('6ac712e50f26896abb114fa2'),
+    '3': ObjectId('6ac712e50f26896abb114fa3')
+  }
+}
+db.products_structure.insertOne({
+    product_id: 201,
+    product_name: "Gaming Laptop",
+    brand: "Lenovo",
+    category: "Electronics",
+    price: 85000,
+    ram: "16 GB",
+    storage: "1 TB SSD",
+    processor: "Intel Core i7"
+})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6ac712f80f26896abb114fa4')
+}

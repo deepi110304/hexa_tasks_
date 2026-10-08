@@ -1,0 +1,31 @@
+db.createCollection("datatype_demo")
+db.datatype_demo.insertOne({
+    product_id: 301,
+
+    product_name: "Smart TV",              // String
+
+    price: 45999.99,                       // Double
+
+    stock: NumberInt(25),                  // Integer
+
+    total_views: NumberLong(150000),        // Long
+
+    available: true,                       // Boolean
+
+    launch_date: ISODate("2026-10-01"),    // Date
+
+    discount: null,                        // Null
+
+    tags: [
+        "Electronics",
+        "Smart TV",
+        "4K"
+    ],                                     // Array
+
+    specifications: {
+        screen_size: "55 inch",
+        resolution: "4K",
+        wifi: true
+    },                                     // Embedded Document
+    product_code: ObjectId()               // ObjectId
+})
